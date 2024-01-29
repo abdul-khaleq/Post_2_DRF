@@ -4,8 +4,8 @@ from .import models
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.PostModel
-        fields = ['caption','body','post_image']
-        # fields = '__all__'
+        # fields = ['caption','body','post_image']
+        fields = '__all__'
         
         
 class PostLikeSerializer(serializers.ModelSerializer):

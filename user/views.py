@@ -34,11 +34,11 @@ class UserRegistrationApiView(APIView):
             uid = urlsafe_base64_encode(force_bytes(user.pk))
             print("uid ", uid)
             confirm_link = f"http://127.0.0.1:8000/user/active/{uid}/{token}"
-            # email_subject = "Confirm Your Email"
-            # email_body = render_to_string('confirm_email.html', {'confirm_link' : confirm_link})
-            # email = EmailMultiAlternatives(email_subject , '', to=[user.email])
-            # email.attach_alternative(email_body, "text/html")
-            # email.send()
+            email_subject = "Confirm Your Email"
+            email_body = render_to_string('confirm_email.html', {'confirm_link' : confirm_link})
+            email = EmailMultiAlternatives(email_subject , '', to=[user.email])
+            email.attach_alternative(email_body, "text/html")
+            email.send()
             return Response("Check your mail for confirmation")
         return Response(serializer.errors)
 
