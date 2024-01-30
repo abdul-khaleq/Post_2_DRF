@@ -36,4 +36,5 @@ sqlparse
 swapper
 typing_extensions
 tzdata
+django-cors-headers
 virtualenv
